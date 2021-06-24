@@ -8,13 +8,21 @@ const app = express();
 connectDB();
 
 // Init Middleware
-// app.use(express.json({ extended: false }));
+app.use(express.json({ extended: false }));
 
 // Define Routes
 app.use("/api/users", require("./routes/api/users"));
+app.use("/api/adminChangePass", require("./routes/api/adminChangePass"));
+app.use("/api/userChangePass", require("./routes/api/userChangePass"));
+app.use("/api/updateUser", require("./routes/api/updateUser"));
+app.use("/api/typeUsers", require("./routes/api/typeUsers"));
+app.use("/api/branchs", require("./routes/api/branchs"));
+app.use("/api/jobs", require("./routes/api/jobs"));
+app.use("/api/shifts", require("./routes/api/shifts"));
+app.use("/api/personInShifts", require("./routes/api/personInShifts"));
+app.use("/api/shiftManagers", require("./routes/api/shiftManagers"));
+app.use("/api/shiftRegisters", require("./routes/api/shiftRegisters"));
 app.use("/api/auth", require("./routes/api/auth"));
-app.use("/api/profile", require("./routes/api/profile"));
-app.use("/api/posts", require("./routes/api/posts"));
 
 // // Server static assets in production
 // if (process.env.NODE_ENV === "production") {
